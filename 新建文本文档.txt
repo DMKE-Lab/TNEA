@@ -1,0 +1,16 @@
+数据：
+以TATRANSE的方法编码时间，主要增加三个文件
+train.npy: 保存训练集
+test.npy: 保存测试集
+tiemSource_tem.npy: 保存时间信息
+
+tiemSource_tem与train.npy严格对应，同时，计算tiemSource的时间又很长，所以保存timeSource以便快速重复
+三个文件缺少任一一个，都会重新计算训练集、测试集、时间信息。训练时可以这样以重新获取数据
+
+
+
+
+代码主要3处修改
+util: 修改load_data, 数据没有时间信息时，计算数据并且保存
+model: 增加LSTM类
+train：修改训练过程
